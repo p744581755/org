@@ -1,0 +1,49 @@
+* ÎÊÌâ£¨Îª½â¾ö£©
+  DEADLINE: <2021-07-29 ÖÜËÄ>
+*
+DEADLINE: <2021-07-30 ÖÜÎå>
+
+* bbk_sdk
+  SCHEDULED: <2021-08-02 ÖÜ >
+
+** words
+
+*** verify È·ÈÏ
+
+
+*** rountine ³£¹æµÄ
+
+*** unregistered Î´×¢®á
+
+*** provision Ìá¹©Ô¤·À ¹æ¶¨
+
+*** reassemb ÖØÐÂ×é×°
+
+** code
+
+*** BRR_TYPE_ADV    BRR_TYPE_PB_ADV  Çø±ð s
+    [file:d:/org_phone/PB.png]Í¼Æ¬]]
+
+*** blebrr_gatt_send ==  bearer->info.bearer_send
+
+*** SAR  MESH_GATT_SAR_STAR  £¿
+
+*** gatt_tx_pdu[0]  ÓÃÀ´¸ÉÊ®Ã´µÄ ÒâÒå
+
+****     [[file:d:/org_phone/gatt_tx_pdu\[0\].png][Í¼Æ¬]]
+
+* ²Ù×ÝÏµÍ³
+  SCHEDULED: <2021-08-03 Ö þ>
+
+** Ö´ÐÐÌå£º²Ù×÷ÏµºËÐÄ·þÎñ ÄÚ´æ¹ÜÀí ½ø³Ì Ïß³Ì¹ÜÀí °²È« I/o ½ø³ÌÍ¨Ñ¶
+
+** ÄÚºË£º¿ØÖÆ´¦ÀíÆ÷Ö´ÐÐ¡£
+
+*** ÄÚºË¹ÜÀí°üÀ¨Ïß³ÌºÍ½ø³ÌµÄµ÷¶È ½ø³ÌµÄÇÐ»»Òì³£ ºÍÖÐ¶Ï´¦Àí ¶à´¦ÀíÍ¨Í¬²½
+
+*** ÄÚºËµÄ±¾ÉíÄÚÈÝ²¢²»ÔÚÏß³ÌÄÚÖ´ÐÐ  ÄÚºËÊÇ²Ù×÷ÏµÍ³²»¿ÉÇÀÕ¼ºÍ·ÖÒ³µÄ²¿·Ö
+
+*
+* words
+
+** revert
