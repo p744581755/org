@@ -1,0 +1,37 @@
+*  SCHEDULED: <2021-08-13 周五>
+
+** interface 接口 端口
+    This Section Describes the module Notification Callback interface offered
+    to the application
+
+** Asynchornous 异步
+   Lower TRANSPORT Application Asynchronous Notification Callback.
+
+    Lower TRANSPORT calls the registered callback to indicate events occurred to the
+    application.
+
+    \param net_hdr           Network Header.
+    \param subnet_handle     Associated Subnet Handle.
+    \param data_param        Data associated with the event if any or NULL.
+    \param data_len          Size of the event data. 0 if event data is NULL.
+
+*** occurred 发生
+
+*** assciated 相关
+
+** significant 重大 重要的
+    /** Least significant bit of IV Index - 1 bit */
+
+** encytion 密码
+
+    /**
+        Value derived from the NetKey used to identify
+        the Encrytion Key and Privacy Key used to secure
+        this PDU - 7 bits
+    */
+
+** source 源地址
+
+** recption  接受 重点
+
+** subnet 子网

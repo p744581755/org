@@ -1,49 +1,319 @@
-* ÎÊÌâ£¨Îª½â¾ö£©
-  DEADLINE: <2021-07-29 ÖÜËÄ>
+*               
+  DEADLINE: <2021-07-29     >
 *
-DEADLINE: <2021-07-30 ÖÜÎå>
+DEADLINE: <2021-07-30     >
 
 * bbk_sdk
-  SCHEDULED: <2021-08-02 ÖÜ >
+  SCHEDULED: <2021-08-02    >
 
 ** words
 
-*** verify È·ÈÏ
+*** verify     
 
 
-*** rountine ³£¹æµÄ
+*** rountine       
 
-*** unregistered Î´×¢®á
+*** unregistered       
 
-*** provision Ìá¹©Ô¤·À ¹æ¶¨
+*** provision              
 
-*** reassemb ÖØÐÂ×é×°
+*** reassemb         
 
 ** code
 
-*** BRR_TYPE_ADV    BRR_TYPE_PB_ADV  Çø±ð s
-    [file:d:/org_phone/PB.png]Í¼Æ¬]]
+*** BRR_TYPE_ADV    BRR_TYPE_PB_ADV       s
+    [file:d:/org_phone/PB.png]    ]]
 
-*** blebrr_gatt_send ==  bearer->info.bearer_send
+*** blebrr_gatt_send ==  bearer->info.bearer_send  blebrr_gatt_send
 
-*** SAR  MESH_GATT_SAR_STAR  £¿
+*** SAR  MESH_GATT_SAR_STAR    
 
-*** gatt_tx_pdu[0]  ÓÃÀ´¸ÉÊ®Ã´µÄ ÒâÒå
+*** gatt_tx_pdu[0]                   
 
-****     [[file:d:/org_phone/gatt_tx_pdu\[0\].png][Í¼Æ¬]]
+****     [[file:d:/org_phone/gatt_tx_pdu\[0\].png][    ]]
 
-* ²Ù×ÝÏµÍ³
-  SCHEDULED: <2021-08-03 Ö þ>
+*         
+  SCHEDULED: <2021-08-03    >
 
-** Ö´ÐÐÌå£º²Ù×÷ÏµºËÐÄ·þÎñ ÄÚ´æ¹ÜÀí ½ø³Ì Ïß³Ì¹ÜÀí °²È« I/o ½ø³ÌÍ¨Ñ¶
+**                                                    I/o         
 
-** ÄÚºË£º¿ØÖÆ´¦ÀíÆ÷Ö´ÐÐ¡£
+**                       
 
-*** ÄÚºË¹ÜÀí°üÀ¨Ïß³ÌºÍ½ø³ÌµÄµ÷¶È ½ø³ÌµÄÇÐ»»Òì³£ ºÍÖÐ¶Ï´¦Àí ¶à´¦ÀíÍ¨Í¬²½
+***                                                                    
 
-*** ÄÚºËµÄ±¾ÉíÄÚÈÝ²¢²»ÔÚÏß³ÌÄÚÖ´ÐÐ  ÄÚºËÊÇ²Ù×÷ÏµÍ³²»¿ÉÇÀÕ¼ºÍ·ÖÒ³µÄ²¿·Ö
+***                                                                   
 
-*
+***                                                                         
+
+***                                                                                            
+
+***                                                                                               
+
+***         cpu                                                                                      
+                         
+
+*** task_struct(                    )             clone             linux                              
+
+***                                                                          LWP
+
+***                                 
+
 * words
 
 ** revert
+
+** arithmetic     
+
+** specification     
+
+** capability     
+
+** claimed          
+
+* bbk  code
+  SCHEDULED: <2021-08-06     >
+
+** words
+
+*** retval          
+
+*** index               
+
+*** routine          
+
+*** uncast     
+
+
+*** primary                
+
+
+** code
+*** code  UI_vendor_model_set
+
+
+*** MS_access_cm_set_primary_unicast_address  /            /
+
+* extren
+  SCHEDULED: <2021-08-09    >
+
+** extren
+
+***     extren                                                 
+    SCHEDULED: <2021-08-10    >
+
+
+*         
+  SCHEDULED: <2021-08-10    >
+
+**         
+
+***               
+
+*** extern                 
+
+*** static                         
+
+***     case GAP_LINK_TERMINATED_EVENT:
+**         
+
+***          *          *
+
+****         
+
+****         
+
+
+* bbk         
+  SCHEDULED: <2021-08-11     >
+
+**  blebrr_disconnect_pl();
+    if (events & BLEMESH_GAP_TERMINATE)
+    {
+        blebrr_disconnect_pl();
+        return (events ^ BLEMESH_GAP_TERMINATE);
+    }
+
+**     case GAP_LINK_TERMINATED_EVENT:
+    {
+        gapTerminateLinkEvent_t* pPkt = (gapTerminateLinkEvent_t*)pMsg;
+        /* printf("\r\n GAP_LINK_TERMINATED_EVENT received! \r\n"); */
+        blebrr_handle_le_disconnection_pl
+        (
+            0x00, /* Dummy Static Connection Index */
+            pPkt->connectionHandle,
+            pPkt->reason
+        );
+    }
+
+**         
+
+***     if (NULL != value)
+    {
+        BLEBRRPL_LOG("Mesh Proxy Data IN received");
+        //appl_dump_bytes(value, length);
+        blebrr_recv_mesh_packet_pl
+        (
+            &conn_hndl,
+            offset,
+            value,
+            length
+        );
+    }
+**   UI_proxy_start_adv(0x0000, MS_PROXY_NODE_ID_ADV_MODE);
+if (API_SUCCESS == UI_sample_check_app_key())
+        {
+            UI_sample_get_device_key();
+
+            if (MS_ENABLE == state)
+            {
+                light_blink_set(LIGHT_GREEN, LIGHT_BLINK_FAST,5);
+                //for silab 2.0.0 app use NODE ID
+                CONSOLE_OUT("\r\n Provisioned Device - Starting Proxy with NODE ID on Subnet 0x0000!\r\n");
+                UI_proxy_start_adv(0x0000, MS_PROXY_NODE_ID_ADV_MODE);
+                #if (CFG_HEARTBEAT_MODE)
+
+                if(ms_provisioner_addr != 0)
+                {
+                    printf("sub ms_provisioner_addr 0x%04X\n",ms_provisioner_addr);
+                    UI_trn_set_heartbeat_subscription(ms_provisioner_addr);
+                }
+** UI_gatt_iface_event_pl_cb
+***    case BLEBRR_GATT_IFACE_DOWN:
+        CONSOLE_OUT("\r\n >> GATT Bearer BLE Link Layer Disconnection Event Received!\r\n");
+        osal_stop_timerEx(bleMesh_TaskID, BLEMESH_GAP_TERMINATE);
+
+        //UI_sample_reinit();
+        if(thandle == EM_TIMER_HANDLE_INIT_VAL)
+        {
+            EM_start_timer (&thandle, 3, timeout_cb, NULL, 0);
+        }
+
+        break;
+** over gatt
+      if (MS_TRUE == is_prov_req)
+    {
+        /* Start Provisioning over GATT here */
+        /**
+            setup <role:[1 - Device, 2 - Provisioner]> <bearer:[1 - Adv, 2 - GATT]
+        */
+        role = PROV_ROLE_DEVICE;
+        brr  = PROV_BRR_GATT|PROV_BRR_ADV;  //PROV_BRR_ADV,PROV_BRR_GATT
+        printf("Bearer type = 0x%02X(Bit0-adv, Bit1-GATT)\r\n", brr);
+//        UI_prov_brr_handle = brr;
+        /**
+            Setting up an Unprovisioned Device over GATT
+        */
+        LIGHT_ONLY_RED_ON;
+        blebrr_prov_started = MS_FALSE;
+        UI_setup_prov(role, brr);
+//        UI_prov_bind(brr, 0x00);
+        //ms_access_ps_store(MS_PS_RECORD_SEQ_NUMBER);
+        CONSOLE_OUT("\r\n Setting up as an Unprovisioned Device\r\n");
+    }
+**   mesh
+       if (0xFF != flag)
+    {
+        blebrr_disable_mesh_serv_pl(curr_service);
+        blebrr_enable_mesh_serv_pl(flag);
+        curr_service = flag;
+    }
+***   UI_setup_prov(role, brr);
+**    blebrr_init_pl();        
+       if (PROV_ROLE_PROVISIONER != role)
+    {
+        CONSOLE_OUT("Setting up Device for Provisioning ...\n");
+        retval = MS_prov_setup
+                 (
+                     brr,
+                     role,
+                     &UI_lprov_device,
+                     UI_PROV_SETUP_GATT_MSECS,
+                     UI_PROV_SETUP_ADV_MSECS
+                 );
+        UI_prov_role = PROV_ROLE_DEVICE;
+    }
+
+**  iface enable
+
+   case BLEBRR_GATT_IFACE_ENABLE:
+        CONSOLE_OUT("\r\n >> GATT Bearer Active Event Received!\r\n");
+        {
+            if (BLEBRR_GATT_PROV_MODE == ev_param)
+            {
+                /* Call to bind with the selected device */
+                UI_prov_brr_handle = PROV_BRR_GATT;
+                UI_prov_bind(PROV_BRR_GATT, 0);
+            }
+        }
+        break;
+
+**
+    if (MS_TRUE == is_prov_req)
+    {
+        /* Start Provisioning over GATT here */
+        /**
+             setup <role:[1 - Device, 2 - Provisioner]> <bearer:[1 - Adv, 2 - GATT]
+        */
+        role = PROV_ROLE_DEVICE;
+        brr  = PROV_BRR_GATT|PROV_BRR_ADV;  //PROV_BRR_ADV,PROV_BRR_GATT
+        printf("Bearer type = 0x%02X(Bit0-adv, Bit1-GATT)\r\n", brr);
+//        UI_prov_brr_handle = brr;
+        /**
+            Setting up an Unprovisioned Device over GATT
+        */
+        LIGHT_ONLY_RED_ON;
+        blebrr_prov_started = MS_FALSE;
+        UI_setup_prov(role, brr);
+//        UI_prov_bind(brr, 0x00);
+        //ms_access_ps_store(MS_PS_RECORD_SEQ_NUMBER);
+        CONSOLE_OUT("\r\n Setting up as an Unprovisioned Device\r\n");
+    }
+      case HCI_DISCONNECTION_COMPLETE_EVENT_CODE:
+            gapProcessDisconnectCompleteEvt( (hciEvt_DisconnComplete_t*)pMsg );
+            break;
+
+** ²Ù×÷ÏµÍ³
+
+*** Ö´ÐÐÉÏÏÂÎÄ³ÆÎª½ø³ÌµÄ×´Ì¬£¬ÊÇ²Ù×÷ÏµÍ³¹ÜÀíºÍ¿ØÖÆËùÐèµÄÄÚ²¿Êý¾Ý¡£ÓÃÀ´¹ÜÀí½ø³Ì
+
+* mesh ÅäÍø
+  SCHEDULED: <2021-08-12 ÖÜËÄ>
+
+** bbb_sdk
+
+
+** Ð­Òé
+
+** words
+
+*** msecs ºÁÃë
+
+*** expire ÆÚÂú
+
+** python
+
+*** import
+    Ïà¶Ôµ¼ÈëºÍ¾ø¶Ôµ¼Èë
+    import as È¡±ðÃû
+    form import
+
+*** def º¯Êý
+
+**** Ä¬ÈÏ²ÎÊýÖµ=  ¸úÖØÔØ²î²»¶à
+
+**** *ÐÞÊÎ¿É±ä²ØÊé
+
+**** **ÐÞÊÎ¹Ø¼ü×Ö²ÎÊý  ÈÎÒâ¸ö²ÎÊý×Ô¶¯·â×°³ÉÒ»¸ö×Öµä
+
+**** global a Éù´Ë±äÁ¿ÊÇÈ«¾Ö±äÁ¿
+
+*** title()
+    ·µ»ØÒ»¸ö±êÌâ»°µÄ×Ö·û´®
+
+*** items() ·µ»Ø¿É±éÀúµÄÔªËØ×é
+
+*** time.perf_counter()
+    ·µ»Øµ±Ç°ÏµÍ³Ê±¼ä  Ò»°ãÓÃÓÚ¼ÆËã³ÌÐòÔËÐÐÊ±¼ä
+
+*** range()
+    ·µ»ØÒ»¸öµü´ú¶ÔÏó£¨ÀàÐÍÊÇ¶ÔÏó£©

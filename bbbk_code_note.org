@@ -1,0 +1,45 @@
+* 组包
+  DEADLINE: <2021-08-13 周五>
+** Ms_ltrn_register
+
+*** API_RESULT
+    typedef API_RESULT (*LTRN_NTF_CB)
+(
+    MS_NET_HEADER*      net_hdr,
+    MS_SUBNET_HANDLE    subnet_handle,
+    UCHAR               szmic,
+    UCHAR*              data_param,
+    UINT16              data_len
+) DECL_REENTRANT;
+
+**** _MS_NET_HEADER
+     typedef struct _MS_NET_HEADER
+{
+    /** Least significant bit of IV Index - 1 bit */
+    UINT8 ivi;
+
+    /**
+        Value derived from the NetKey used to identify
+        the Encrytion Key and Privacy Key used to secure
+        this PDU - 7 bits
+    */
+    UINT8 nid;
+
+    /** Network Control - 1 bit */
+    UINT8 ctl;
+
+    /** Time To Live - 7 bits */
+    UINT8 ttl;
+
+    /** 16 Bit Source Address */
+    MS_NET_ADDR saddr;
+
+    /** 16 Bit Destination Address */
+    MS_NET_ADDR daddr;
+
+    /** 24 bit sequence number - currently filled only in recption path */
+    UINT32 seq_num;
+
+    } MS_NET_HEADER;
+    [[file:Pmesh/meshpdu.jpg][MeshPdu]]
+***** vi nid  组成一个字节 助于识别网络
